@@ -105,7 +105,8 @@
         android:textColorHighlight="#FF4081"
         android:background="@drawable/sign_in_btn"
         android:layout_height="wrap_content"
-        android:text="Sign up" />
+        android:text="Sign up"
+        android:onClick="goToRegistration"/>
 
 
 </LinearLayout>
