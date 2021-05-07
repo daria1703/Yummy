@@ -2,6 +2,7 @@ package com.example.yummy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    public void goToSignIn(View view) {
+        Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
+    }
 
 
 }
