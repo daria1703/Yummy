@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="User emial"
+        android:hint="User email"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textEmailAddress"
