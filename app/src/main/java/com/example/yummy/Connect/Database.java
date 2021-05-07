@@ -1,8 +1,5 @@
 package com.example.yummy.Connect;
 
-import android.os.AsyncTask;
-import android.os.StrictMode;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -12,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//FIXME pobiera dane, ale crashuje aplikacje
+
 public class Database {
 
     private Connection connection;
@@ -70,9 +67,32 @@ public class Database {
         return c;
     }
 
+    List<String[]> usersData;
+
     public List<String[]> getUsersData() throws SQLException {
 
-        return getTableContent("users");
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    usersData = getTableContent("users");
+
+                } catch (Exception e) {
+                    status = false;
+                    System.out.print(e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.status = false;
+        }
+
+        return usersData;
 
     }
 
