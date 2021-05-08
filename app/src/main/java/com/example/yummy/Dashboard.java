@@ -14,8 +14,6 @@ import android.widget.Toast;
 import com.example.yummy.Connect.Database;
 import com.example.yummy.Connect.UserData;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Dashboard extends AppCompatActivity {
@@ -35,7 +33,12 @@ public class Dashboard extends AppCompatActivity {
         String email = this.email.getText().toString();
         String password = this.password.getText().toString();
 
-        if (isNetworkAvailable()) {
+        if (email.isEmpty()) {
+            makeToast("Enter your email address!");
+        }
+        if (password.isEmpty()) {
+            makeToast("Enter password!");
+        }else if (isNetworkAvailable()) {
 
             UserData user = validateUser(email, password);
 
