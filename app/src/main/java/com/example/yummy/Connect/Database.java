@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Database {
 
-    private Connection connection;
+    private static Connection connection;
 
     private final String host = "195.150.230.210";
     private final String database = "2021_zaucha_patryk";
@@ -139,5 +139,28 @@ public class Database {
         }
 
         return columns;
+    }
+
+    public static void addUser(final String fullName, final String nick, final String email, final String password) {
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String query = "INSERT INTO yummy.users (full_name, nick, email, password)" +
+                        "VALUES ('" + fullName + "', '" + nick + "', '" + email + "', '" + password + "');";
+                Statement stmt = null;
+                try {
+                    connection.createStatement().execute(query);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
