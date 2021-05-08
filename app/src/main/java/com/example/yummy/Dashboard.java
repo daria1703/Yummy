@@ -43,9 +43,8 @@ public class Dashboard extends AppCompatActivity {
             UserData user = validateUser(email, password);
 
             if (user != null) {
-                //TODO przejscie do menu z przepisami
                 makeToast("Hi " + user.getNick() + ", it's nice to see you");
-                Intent intent = new Intent(this,Gallery.class);
+                Intent intent = new Intent(this, GalleryActivity.class);
                 startActivity(intent);
             } else {
                 makeToast("Invalid email or password!");
