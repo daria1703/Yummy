@@ -1,5 +1,9 @@
 package com.example.yummy.Connect;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -69,7 +73,7 @@ public class Database {
 
     List<String[]> usersData;
 
-    public List<String[]> getUsersData() throws SQLException {
+    public List<UserData> getUsersData() throws SQLException {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -92,7 +96,15 @@ public class Database {
             this.status = false;
         }
 
-        return usersData;
+        List<UserData> users = new ArrayList<>();
+        UserData user;
+
+        for (String[] row: usersData) {
+            user = new UserData(Integer.parseInt(row[0]), row[1], row[2], row[3], row[4]);
+            users.add(user);
+        }
+
+        return users;
 
     }
 
