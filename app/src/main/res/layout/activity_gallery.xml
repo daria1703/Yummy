@@ -4,6 +4,248 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDDDF1"
     tools:context=".GalleryActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/logo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Yummy!"
+                android:textAlignment="center"
+                android:textSize="50dp" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ciasta"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="151dp"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ciasto_gora_lodowa" />
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="169dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ciasto_lion_01_0" />
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="match_parent"
+                android:layout_height="157dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/sernik_swiateczny_z_brzoskwiniami" />
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="match_parent"
+                android:layout_height="171dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/szarlotka_z_budyniem_1" />
+
+            <TextView
+                android:id="@+id/text22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Babeczki"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="match_parent"
+                android:layout_height="157dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/muffiny_z_truskawkami" />
+
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/czekoladowe_chmurki_1" />
+
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/muffiny_czekoladowe_z_nutella_sliwkami" />
+
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="match_parent"
+                android:layout_height="176dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/muffinki_czekoladowe_bezglutenowe" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Obiady"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/image9"
+                android:layout_width="match_parent"
+                android:layout_height="169dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/zupa_z_cukinia_ziemniakami_feta" />
+
+            <ImageView
+                android:id="@+id/image10"
+                android:layout_width="match_parent"
+                android:layout_height="188dp"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/makaron_z_truskawkami" />
+
+            <ImageView
+                android:id="@+id/image11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/makaron_z_pulpecikami_w_sosie_carbonara" />
+
+            <ImageView
+                android:id="@+id/image12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/dorsz_w_sosie_curry" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pizza"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/image13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/pizza_pasterska" />
+
+            <ImageView
+                android:id="@+id/image14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/pizza_z_gorgonzola_pomidorami" />
+
+            <ImageView
+                android:id="@+id/image15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/pizza_hiszpanska_05_0" />
+
+            <ImageView
+                android:id="@+id/image16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/pizza_wegierska2" />
+
+            <TextView
+                android:id="@+id/text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Napoje"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/image17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/bombardino" />
+
+            <ImageView
+                android:id="@+id/image18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/czekolada_na_goraco_na_czerwonym_winie" />
+
+            <ImageView
+                android:id="@+id/image19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/smoothie_z_batatow" />
+
+            <ImageView
+                android:id="@+id/image20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:longClickable="true"
+                android:onClick="onClick"
+                android:scaleType="center"
+                app:srcCompat="@drawable/malinowa_agua_fresca" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
