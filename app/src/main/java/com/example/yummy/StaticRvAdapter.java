@@ -47,10 +47,10 @@ public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.Static
         });
 
         if (row_index == position ){
-            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_bg);
+            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);
         }
         else {
-            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_selected_bg);
+            holder.linearLayout.setBackgroundResource(R.drawable.static_rv_bg);
         }
 
 

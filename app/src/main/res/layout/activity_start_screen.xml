@@ -63,61 +63,30 @@
             android:text="U_name"
             android:textSize="50dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.701"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/hello"
             app:layout_constraintVertical_bias="0.0" />
 
-        <EditText
-            android:id="@+id/search"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            android:hint="Search"
-            android:paddingLeft="20dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="10dp"
-            android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.284"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hello"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintWidth_percent="0.7" />
-
-        <ImageView
-            android:id="@+id/loupe"
-            android:layout_width="23dp"
-            android:layout_height="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/search"
-            app:layout_constraintTop_toBottomOf="@+id/Foodies"
-            app:srcCompat="@drawable/ic_loupe"
-            tools:ignore="VectorDrawableCompat" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search"
-            app:layout_constraintVertical_bias="0.027" />
+            app:layout_constraintTop_toBottomOf="@+id/Foodies"
+            app:layout_constraintVertical_bias="0.004" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv2"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
