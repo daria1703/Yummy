@@ -141,7 +141,7 @@ public class Database {
         return columns;
     }
 
-    public static void addUser(final String fullName, final String nick, final String email, final String password) {
+    public static boolean addUser(final String fullName, final String nick, final String email, final String password) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -159,8 +159,10 @@ public class Database {
         thread.start();
         try {
             thread.join();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }
