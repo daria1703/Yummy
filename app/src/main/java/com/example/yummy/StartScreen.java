@@ -1,11 +1,15 @@
 package com.example.yummy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.yummy.DynamicRecycleView.LoadMore;
@@ -91,5 +95,21 @@ public class StartScreen extends AppCompatActivity {
             }
         });
 
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                        //TODO przekazanie obiektu
+                        goToRecipe();
+
+                    }
+                })
+        );
+
+    }
+
+    private void goToRecipe() {
+        Intent intent = new Intent(this, GalleryActivity.class);
+        startActivity(intent);
     }
 }
