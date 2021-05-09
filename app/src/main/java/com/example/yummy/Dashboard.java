@@ -2,6 +2,7 @@ package com.example.yummy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -25,6 +26,7 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+
         email = findViewById(R.id.EditEmail);
         password = findViewById(R.id.editPassword);
     }
@@ -44,8 +46,7 @@ public class Dashboard extends AppCompatActivity {
 
             if (user != null) {
                 makeToast("Hi " + user.getNick() + ", it's nice to see you");
-                Intent intent = new Intent(this, GalleryActivity.class);
-                startActivity(intent);
+                goToStartScreen();
             } else {
                 makeToast("Invalid email or password!");
             }
@@ -57,6 +58,11 @@ public class Dashboard extends AppCompatActivity {
 
     public void goToRegistration(View view) {
         Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToStartScreen() {
+        Intent intent = new Intent(this, StartScreen.class);
         startActivity(intent);
     }
 
