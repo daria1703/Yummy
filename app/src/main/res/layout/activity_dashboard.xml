@@ -85,12 +85,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:onClick="goToStartScreen"
         android:textColorHighlight="#FF4081"
         android:background="@drawable/sign_in_btn"
         android:onClick="signIn"
-        android:text="Sign in"
-        android:textColorHighlight="#FF4081" />
+        android:text="Sign in" />
 
     <TextView
         android:id="@+id/or"

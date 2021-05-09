@@ -47,6 +47,7 @@ public class Dashboard extends AppCompatActivity {
             if (user != null) {
                 //TODO przejscie do menu z przepisami
                 makeToast("Hi " + user.getNick() + ", it's nice to see you");
+                goToStartScreen();
             } else {
                 makeToast("Invalid email or password!");
             }
@@ -58,6 +59,11 @@ public class Dashboard extends AppCompatActivity {
 
     public void goToRegistration(View view) {
         Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToStartScreen() {
+        Intent intent = new Intent(this, StartScreen.class);
         startActivity(intent);
     }
 
