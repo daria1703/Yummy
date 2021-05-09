@@ -1,6 +1,5 @@
 package com.example.yummy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,12 +24,14 @@ public class StartScreen extends AppCompatActivity {
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
 
+    private final ArrayList<StaticRvModel> item = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
-        final ArrayList<StaticRvModel> item = new ArrayList<>();
+
         item.add(new StaticRvModel(R.drawable.ic_pizza,"Pizza"));
         item.add(new StaticRvModel(R.drawable.ic_cake_rv,"Cake"));
         item.add(new StaticRvModel(R.drawable.ic_cup_cake,"Cupcake"));
@@ -99,8 +99,8 @@ public class StartScreen extends AppCompatActivity {
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
 
-                        //TODO przekazanie obiektu
-                        goToRecipe();
+                        String chosenCategory = item.get(position).getText();
+                        goToRecipe(chosenCategory);
 
                     }
                 })
@@ -108,8 +108,9 @@ public class StartScreen extends AppCompatActivity {
 
     }
 
-    private void goToRecipe() {
+    private void goToRecipe(String chosenCategory) {
         Intent intent = new Intent(this, GalleryActivity.class);
+        intent.putExtra("chosenCategory", chosenCategory);
         startActivity(intent);
     }
 }
