@@ -45,7 +45,6 @@ public class Dashboard extends AppCompatActivity {
             UserData user = validateUser(email, password);
 
             if (user != null) {
-                //TODO przejscie do menu z przepisami
                 makeToast("Hi " + user.getNick() + ", it's nice to see you");
                 goToStartScreen();
             } else {
