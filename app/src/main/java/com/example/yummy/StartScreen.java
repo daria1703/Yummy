@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
@@ -47,14 +48,7 @@ public class StartScreen extends AppCompatActivity {
         items.add(new DynamicRVModel("Pizza"));
         items.add(new DynamicRVModel("Pizza"));
         items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
+
 
         RecyclerView drv = findViewById(R.id.rv2);
         drv.setLayoutManager(new LinearLayoutManager(this));
@@ -92,4 +86,6 @@ public class StartScreen extends AppCompatActivity {
         });
 
     }
+
+
 }
