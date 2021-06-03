@@ -44,6 +44,14 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ImageView
+        android:layout_width="412dp"
+        android:layout_height="280dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/muffiny_czekoladowe_00"
+        app:layout_collapseMode="parallax"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
