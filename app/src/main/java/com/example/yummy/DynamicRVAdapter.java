@@ -27,11 +27,11 @@ class LoadingViewHolder extends RecyclerView.ViewHolder{
 
 class ItemViewHolder extends RecyclerView.ViewHolder{
 
-    public TextView name;
+    public TextView username;
 
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
-        name = itemView.findViewById(R.id.name);
+        username = itemView.findViewById(R.id.username);
     }
 }
 
@@ -99,7 +99,7 @@ public class DynamicRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (holder instanceof ItemViewHolder){
                 DynamicRVModel item = items.get(position);
                 ItemViewHolder viewHolder = (ItemViewHolder) holder;
-                viewHolder.name.setText(items.get(position).getName());
+                viewHolder.username.setText(items.get(position).getName());
             }
 
             else if (holder instanceof ItemViewHolder){
