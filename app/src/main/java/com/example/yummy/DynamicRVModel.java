@@ -1,5 +1,8 @@
 package com.example.yummy;
 
+import android.content.Intent;
+import android.view.View;
+
 public class DynamicRVModel {
 
     String name;
@@ -11,4 +14,8 @@ public class DynamicRVModel {
     public String getName() {
         return name;
     }
+
+
+
+
 }
