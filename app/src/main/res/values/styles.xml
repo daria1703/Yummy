@@ -4,7 +4,9 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#EDDDF1</item>
+        <item name = "android:textColorPrimary">@android:color/white</item>
         <item name="colorAccent">#FF4081</item>
+
 
     </style>
 

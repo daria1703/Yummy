@@ -20,6 +20,7 @@ public class StartScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private StaticRvAdapter staticRvAdapter;
+    private DynamicRVModel dynamicRVModel;
 
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
@@ -44,26 +45,26 @@ public class StartScreen extends AppCompatActivity {
         recyclerView.setAdapter(staticRvAdapter);
 
 
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
+
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+
+
 
         RecyclerView drv = findViewById(R.id.rv2);
         drv.setLayoutManager(new LinearLayoutManager(this));
         dynamicRVAdapter = new DynamicRVAdapter(drv,this,items);
         drv.setAdapter(dynamicRVAdapter);
+
+      //  Intent intent = new Intent(StartScreen.this,Recipe.class);
+       // startActivity(intent);
+
+
 
         dynamicRVAdapter.setLoadMore(new LoadMore() {
             @Override
@@ -86,6 +87,7 @@ public class StartScreen extends AppCompatActivity {
                             }
                             dynamicRVAdapter.notifyDataSetChanged();
                             dynamicRVAdapter.setLoaded();
+
 
                         }
                     }, 4000);
@@ -113,4 +115,8 @@ public class StartScreen extends AppCompatActivity {
         intent.putExtra("chosenCategory", chosenCategory);
         startActivity(intent);
     }
+
+
+
+
 }
