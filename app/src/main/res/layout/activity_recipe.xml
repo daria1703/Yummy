@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDDDF1"
-    tools:context=".Recipe">
+    tools:context=".RecipeActivity">
 
 
 
@@ -18,7 +18,7 @@
 
 
         <ImageView
-            android:id="@+id/imgae_od_dish"
+            android:id="@+id/image_of_dish"
             android:layout_width="412dp"
             android:layout_height="280dp"
             android:layout_gravity="center"

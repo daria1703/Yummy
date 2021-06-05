@@ -1,33 +1,30 @@
 package com.example.yummy;
 
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+public class RecipeActivity extends AppCompatActivity {
 
-
-public class Recipe extends AppCompatActivity {
-
-    ImageView imgae_od_dish;
+    ImageView image_of_dish;
     TextView title_of_dish;
-    Button heart_btn;
-    Button comments_btn;
+    FloatingActionButton heart_btn;
+    FloatingActionButton comments_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        imgae_od_dish = findViewById(R.id.imgae_od_dish);
+        image_of_dish = findViewById(R.id.image_of_dish);
         title_of_dish = findViewById(R.id.title_of_dish);
-        //heart_btn = findViewById(R.id.heart_btn);
+        heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
+
     }
-
-
 }

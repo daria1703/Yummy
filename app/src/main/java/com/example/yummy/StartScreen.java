@@ -45,7 +45,6 @@ public class StartScreen extends AppCompatActivity {
         recyclerView.setAdapter(staticRvAdapter);
 
 
-
             items.add(new DynamicRVModel("Pizza"));
             items.add(new DynamicRVModel("Pizza"));
             items.add(new DynamicRVModel("Pizza"));
@@ -53,17 +52,12 @@ public class StartScreen extends AppCompatActivity {
             items.add(new DynamicRVModel("Pizza"));
             items.add(new DynamicRVModel("Pizza"));
             items.add(new DynamicRVModel("Pizza"));
-
 
 
         RecyclerView drv = findViewById(R.id.rv2);
         drv.setLayoutManager(new LinearLayoutManager(this));
         dynamicRVAdapter = new DynamicRVAdapter(drv,this,items);
         drv.setAdapter(dynamicRVAdapter);
-
-      //  Intent intent = new Intent(StartScreen.this,Recipe.class);
-       // startActivity(intent);
-
 
 
         dynamicRVAdapter.setLoadMore(new LoadMore() {
@@ -126,7 +120,7 @@ public class StartScreen extends AppCompatActivity {
     }
 
     private void goToRecipe() {
-        Intent intent = new Intent(this, Recipe.class);
+        Intent intent = new Intent(this, RecipeActivity.class);
         startActivity(intent);
     }
 
