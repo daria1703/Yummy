@@ -102,7 +102,16 @@ public class StartScreen extends AppCompatActivity {
                     @Override public void onItemClick(View view, int position) {
 
                         String chosenCategory = item.get(position).getText();
-                        goToRecipe(chosenCategory);
+                        goToGallery(chosenCategory);
+
+                    }
+                })
+        );
+
+        drv.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        goToRecipe();
 
                     }
                 })
@@ -110,13 +119,16 @@ public class StartScreen extends AppCompatActivity {
 
     }
 
-    private void goToRecipe(String chosenCategory) {
+    private void goToGallery(String chosenCategory) {
         Intent intent = new Intent(this, GalleryActivity.class);
         intent.putExtra("chosenCategory", chosenCategory);
         startActivity(intent);
     }
 
-
+    private void goToRecipe() {
+        Intent intent = new Intent(this, Recipe.class);
+        startActivity(intent);
+    }
 
 
 }

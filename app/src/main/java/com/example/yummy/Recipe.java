@@ -24,7 +24,7 @@ public class Recipe extends AppCompatActivity {
 
         imgae_od_dish = findViewById(R.id.imgae_od_dish);
         title_of_dish = findViewById(R.id.title_of_dish);
-        heart_btn = findViewById(R.id.heart_btn);
+        //heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
     }
