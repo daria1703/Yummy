@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="#EDDDF1"
     tools:context=".RecipeActivity">
 
@@ -41,19 +41,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.286" />
+            app:layout_constraintVertical_bias="0.693" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/heart_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="252dp"
+
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintHorizontal_bias="0.929"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365"
             app:srcCompat="@drawable/ic_empty_heart"
             tools:ignore="VectorDrawableCompat" />
 
@@ -61,20 +61,20 @@
             android:id="@+id/comments_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="252dp"
+
             android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.797"
+            app:layout_constraintHorizontal_bias="0.771"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365"
             app:srcCompat="@drawable/ic_speech_bubble"
             tools:ignore="VectorDrawableCompat" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="290dp"
             android:layout_width="409dp"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/recipe_bg"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
