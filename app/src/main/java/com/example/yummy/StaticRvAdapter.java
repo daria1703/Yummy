@@ -23,6 +23,8 @@ public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.Static
         this.items = items;
     }
 
+
+
     @NonNull
     @Override
     public StaticRVViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

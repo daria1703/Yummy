@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.yummy.DynamicRecycleView.LoadMore;
@@ -18,16 +20,19 @@ public class StartScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private StaticRvAdapter staticRvAdapter;
+    private DynamicRVModel dynamicRVModel;
 
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
+
+    private final ArrayList<StaticRvModel> item = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
-        final ArrayList<StaticRvModel> item = new ArrayList<>();
+
         item.add(new StaticRvModel(R.drawable.ic_pizza,"Pizza"));
         item.add(new StaticRvModel(R.drawable.ic_cake_rv,"Cake"));
         item.add(new StaticRvModel(R.drawable.ic_cup_cake,"Cupcake"));
@@ -40,26 +45,20 @@ public class StartScreen extends AppCompatActivity {
         recyclerView.setAdapter(staticRvAdapter);
 
 
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
-        items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+            items.add(new DynamicRVModel("Pizza"));
+
 
         RecyclerView drv = findViewById(R.id.rv2);
         drv.setLayoutManager(new LinearLayoutManager(this));
         dynamicRVAdapter = new DynamicRVAdapter(drv,this,items);
         drv.setAdapter(dynamicRVAdapter);
+
 
         dynamicRVAdapter.setLoadMore(new LoadMore() {
             @Override
@@ -83,6 +82,7 @@ public class StartScreen extends AppCompatActivity {
                             dynamicRVAdapter.notifyDataSetChanged();
                             dynamicRVAdapter.setLoaded();
 
+
                         }
                     }, 4000);
                 }
@@ -91,5 +91,38 @@ public class StartScreen extends AppCompatActivity {
             }
         });
 
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                        String chosenCategory = item.get(position).getText();
+                        goToGallery(chosenCategory);
+
+                    }
+                })
+        );
+
+        drv.addOnItemTouchListener(
+                new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        goToRecipe();
+
+                    }
+                })
+        );
+
     }
+
+    private void goToGallery(String chosenCategory) {
+        Intent intent = new Intent(this, GalleryActivity.class);
+        intent.putExtra("chosenCategory", chosenCategory);
+        startActivity(intent);
+    }
+
+    private void goToRecipe() {
+        Intent intent = new Intent(this, RecipeActivity.class);
+        startActivity(intent);
+    }
+
+
 }
