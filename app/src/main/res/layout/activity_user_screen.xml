@@ -61,21 +61,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg_user">
 
-        <GridView
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_grid"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="301dp">
+            android:layout_height="wrap_content" >
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:text="Button" />
-        </GridView>
+                
 
-
+            </androidx.cardview.widget.CardView>
+        </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
 
 
