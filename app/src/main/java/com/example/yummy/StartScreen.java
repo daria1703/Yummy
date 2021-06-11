@@ -8,9 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yummy.DynamicRecycleView.LoadMore;
+import com.example.yummy.service.LoggedUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,9 @@ public class StartScreen extends AppCompatActivity {
         item.add(new StaticRvModel(R.drawable.ic_cup_cake,"Cupcake"));
         item.add(new StaticRvModel(R.drawable.ic_banquet,"Dinner"));
         item.add(new StaticRvModel(R.drawable.ic_quentao,"Drink"));
+
+        TextView usernameDisplay = findViewById(R.id.Foodies);
+        usernameDisplay.setText(LoggedUser.getNick());
 
         recyclerView = findViewById(R.id.rv1);
         staticRvAdapter = new StaticRvAdapter(item);

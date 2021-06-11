@@ -1,9 +1,5 @@
 package com.example.yummy.Connect;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -14,26 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Database {
+public abstract class Database {
 
     private static Connection connection;
 
-    private final String host = "195.150.230.210";
-    private final String database = "2021_zaucha_patryk";
-    private final int port = 5434;
-    private final String user = "2021_zaucha_patryk";
-    private final String pass = "1234";
-    private String url = "jdbc:postgresql://%s:%d/%s";
-    public boolean status;
+    private static final String host = "195.150.230.210";
+    private static final String database = "2021_zaucha_patryk";
+    private static final int port = 5434;
+    private static final String user = "2021_zaucha_patryk";
+    private static final String pass = "1234";
+    private static String url = "jdbc:postgresql://%s:%d/%s";
+    public static boolean status;
 
-    public Database() {
-        this.url = String.format(this.url, this.host, this.port, this.database);
-        connect();
-        //this.disconnect();
-        System.out.println("connection status:" + status);
-    }
-
-    private void connect() {
+    public static void connect() {
+        url = String.format(url, host, port, database);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,7 +31,6 @@ public class Database {
                     Class.forName("org.postgresql.Driver");
                     connection = DriverManager.getConnection(url, user, pass);
                     status = true;
-                    System.out.println("connected:" + status);
 
                 } catch (Exception e) {
                     status = false;
@@ -55,8 +44,9 @@ public class Database {
             thread.join();
         } catch (Exception e) {
             e.printStackTrace();
-            this.status = false;
+            status = false;
         }
+        System.out.println("connected:" + status);
     }
 
     public Connection getExtraConnection(){
@@ -71,9 +61,9 @@ public class Database {
         return c;
     }
 
-    List<String[]> usersData;
+    static List<String[]> usersData;
 
-    public List<UserData> getUsersData() throws SQLException {
+    public static List<UserData> getUsersData() throws SQLException {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -93,7 +83,7 @@ public class Database {
             thread.join();
         } catch (Exception e) {
             e.printStackTrace();
-            this.status = false;
+            status = false;
         }
 
         List<UserData> users = new ArrayList<>();
@@ -108,7 +98,7 @@ public class Database {
 
     }
 
-    public List<String[]> getTableContent(String tableName) throws SQLException {
+    public static List<String[]> getTableContent(String tableName) throws SQLException {
         DatabaseMetaData md = connection.getMetaData();
         ResultSet rs = md.getColumns(null, "%", tableName, null);
 
@@ -141,7 +131,7 @@ public class Database {
         return data;
     }
 
-    public List<String> getColumnNames(String tableName) throws SQLException {
+    public static List<String> getColumnNames(String tableName) throws SQLException {
 
         DatabaseMetaData md = connection.getMetaData();
         ResultSet rs = md.getColumns(null, null, tableName, "%");
