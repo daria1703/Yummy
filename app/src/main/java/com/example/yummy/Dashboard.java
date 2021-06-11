@@ -13,9 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.yummy.Connect.Database;
+import com.example.yummy.Connect.RecipeData;
 import com.example.yummy.Connect.UserData;
 import com.example.yummy.service.LoggedUser;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Dashboard extends AppCompatActivity {
@@ -26,6 +28,14 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        // przykładowe pobranie przepisów z bazy danych
+        try {
+            List<RecipeData> recipes = Database.fetchRecipes();
+            System.out.println(recipes);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
 
         email = findViewById(R.id.EditEmail);
@@ -85,7 +95,7 @@ public class Dashboard extends AppCompatActivity {
     private UserData validateUser(String email, String password) {
         Database.connect();
         try {
-            List<UserData> users = Database.getUsersData();
+            List<UserData> users = Database.fetchUsers();
             for (UserData user: users) {
                 if (user.getEmail().equals(email)) {
                     if (user.getPassword().equals(password)) {

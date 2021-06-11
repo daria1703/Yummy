@@ -63,7 +63,7 @@ public abstract class Database {
 
     static List<String[]> usersData;
 
-    public static List<UserData> getUsersData() throws SQLException {
+    public static List<UserData> fetchUsers() throws SQLException {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -99,6 +99,7 @@ public abstract class Database {
     }
 
     public static List<String[]> getTableContent(String tableName) throws SQLException {
+        connect();
         DatabaseMetaData md = connection.getMetaData();
         ResultSet rs = md.getColumns(null, "%", tableName, null);
 
@@ -143,7 +144,8 @@ public abstract class Database {
         return columns;
     }
 
-    public static boolean addUser(final String fullName, final String nick, final String email, final String password) {
+    public static boolean addUser(final String fullName, final String nick,
+                                  final String email, final String password) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -166,5 +168,75 @@ public abstract class Database {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static List<RecipeData> fetchRecipes() throws SQLException {
+
+        List<String[]> data = new ArrayList<>();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                connect();
+                String query = "SELECT * FROM " + "yummy" + "." + "recipes";
+
+                try {
+                    Statement stmt = connection.createStatement();
+                    ResultSet rs = stmt.executeQuery(query);
+
+                    List<String> columns = getColumnNames("recipes");
+
+                    int width = columns.size();
+
+                    String[] line;
+
+
+                    int i;
+                    while(rs.next()){
+                        i = 0;
+                        line = new String[width];
+                        for (String item: columns){
+                            line[i++] = rs.getString(item);
+                        }
+                        data.add(line);
+                    }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+/*
+        List<String[]> recipesAsString = null;
+
+        try {
+            recipesAsString = getTableContent("recipes");
+
+        } catch (Exception e) {
+            status = false;
+            System.out.print(e.getMessage());
+            e.printStackTrace();
+        }
+*/
+        List<RecipeData> recipes = new ArrayList<>();
+        RecipeData recipe;
+
+
+
+        for (String[] row: data) {
+            recipe = new RecipeData(Integer.parseInt(row[0]), Integer.parseInt(row[1]),
+                    row[2], row[3], row[4]);
+            recipes.add(recipe);
+        }
+
+        return recipes;
+
     }
 }

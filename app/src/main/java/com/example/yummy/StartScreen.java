@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yummy.Connect.Database;
+import com.example.yummy.Connect.RecipeData;
 import com.example.yummy.DynamicRecycleView.LoadMore;
 import com.example.yummy.service.LoggedUser;
 
@@ -28,6 +30,8 @@ public class StartScreen extends AppCompatActivity {
     DynamicRVAdapter dynamicRVAdapter;
 
     private final ArrayList<StaticRvModel> item = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
