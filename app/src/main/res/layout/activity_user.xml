@@ -144,7 +144,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@id/title"
+                        android:id="@+id/title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sernik brzoskwiniowy"
@@ -197,7 +197,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@id/title"
+                        android:id="@+id/title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pizza pasterska"
@@ -250,7 +250,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@id/title"
+                        android:id="@+id/title4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Zupa z cukinią"
@@ -301,7 +301,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@id/title"
+                        android:id="@+id/title5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Smoothie z batatow"
@@ -353,7 +353,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@id/title"
+                        android:id="@+id/title6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Malinowa agua fresca"
