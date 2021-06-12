@@ -13,7 +13,7 @@ import java.util.List;
 public class UserActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    
+
 
 
     @Override
@@ -30,7 +30,7 @@ public class UserActivity extends AppCompatActivity {
         String[] descriptions = {"opis babczki bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "opis pizzy ppppppppppppppppppppp", "opis zupy zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "opis dania ddddddddddddddddddddddddddddddddddddddd", "opis ciasta ccccccccccccccccccccccccccccccccccccccccccccc"};
 
         GridAdapter gridAdapter = new GridAdapter(UserActivity.this,dishName,image,descriptions);
-        binding.gridView.setAdapter(gridAdapter);
+      //  binding.grid_view.setAdapter(gridAdapter);
 
 
     }
