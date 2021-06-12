@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -98,7 +97,6 @@ public class StartScreen extends AppCompatActivity {
                 new RecyclerItemClickListener(getApplicationContext(), (view, position) -> {
 
                     String chosenCategory = item.get(position).getText();
-                    //goToGallery(chosenCategory);
                     goToRecipe(chosenCategory);
 
                 })
@@ -109,12 +107,6 @@ public class StartScreen extends AppCompatActivity {
                         -> goToRecipe())
         );
 
-    }
-
-    private void goToGallery(String chosenCategory) {
-        Intent intent = new Intent(this, GalleryActivity.class);
-        intent.putExtra("chosenCategory", chosenCategory);
-        startActivity(intent);
     }
 
     private void goToRecipe() {

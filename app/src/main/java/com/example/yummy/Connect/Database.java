@@ -24,19 +24,16 @@ public abstract class Database {
 
     public static void connect() {
         url = String.format(url, host, port, database);
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Class.forName("org.postgresql.Driver");
-                    connection = DriverManager.getConnection(url, user, pass);
-                    status = true;
+        Thread thread = new Thread(() -> {
+            try {
+                Class.forName("org.postgresql.Driver");
+                connection = DriverManager.getConnection(url, user, pass);
+                status = true;
 
-                } catch (Exception e) {
-                    status = false;
-                    System.out.print(e.getMessage());
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                status = false;
+                System.out.print(e.getMessage());
+                e.printStackTrace();
             }
         });
         thread.start();
@@ -49,33 +46,18 @@ public abstract class Database {
         System.out.println("connected:" + status);
     }
 
-    public Connection getExtraConnection(){
-        Connection c = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection(url, user, pass);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return c;
-    }
-
     static List<String[]> usersData;
 
     public static List<UserData> fetchUsers() throws SQLException {
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    usersData = getTableContent("users");
+        Thread thread = new Thread(() -> {
+            try {
+                usersData = getTableContent("users");
 
-                } catch (Exception e) {
-                    status = false;
-                    System.out.print(e.getMessage());
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                status = false;
+                System.out.print(e.getMessage());
+                e.printStackTrace();
             }
         });
         thread.start();
@@ -147,17 +129,13 @@ public abstract class Database {
     public static boolean addUser(final String fullName, final String nick,
                                   final String email, final String password) {
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String query = "INSERT INTO yummy.users (full_name, nick, email, password)" +
-                        "VALUES ('" + fullName + "', '" + nick + "', '" + email + "', '" + password + "');";
-                Statement stmt = null;
-                try {
-                    connection.createStatement().execute(query);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
+        Thread thread = new Thread(() -> {
+            String query = "INSERT INTO yummy.users (full_name, nick, email, password)" +
+                    "VALUES ('" + fullName + "', '" + nick + "', '" + email + "', '" + password + "');";
+            try {
+                connection.createStatement().execute(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         });
         thread.start();
@@ -174,35 +152,32 @@ public abstract class Database {
 
         List<String[]> data = new ArrayList<>();
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                connect();
-                String query = "SELECT * FROM " + "yummy" + "." + "recipes";
+        Thread thread = new Thread(() -> {
+            connect();
+            String query = "SELECT * FROM " + "yummy" + "." + "recipes";
 
-                try {
-                    Statement stmt = connection.createStatement();
-                    ResultSet rs = stmt.executeQuery(query);
+            try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
 
-                    List<String> columns = getColumnNames("recipes");
+                List<String> columns = getColumnNames("recipes");
 
-                    int width = columns.size();
+                int width = columns.size();
 
-                    String[] line;
+                String[] line;
 
 
-                    int i;
-                    while(rs.next()){
-                        i = 0;
-                        line = new String[width];
-                        for (String item: columns){
-                            line[i++] = rs.getString(item);
-                        }
-                        data.add(line);
+                int i;
+                while(rs.next()){
+                    i = 0;
+                    line = new String[width];
+                    for (String item: columns){
+                        line[i++] = rs.getString(item);
                     }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                    data.add(line);
                 }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
         });
         thread.start();
