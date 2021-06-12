@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GalleryActivity extends AppCompatActivity {
     ImageView image1, image2, image3, image4;
@@ -67,7 +68,10 @@ public class GalleryActivity extends AppCompatActivity {
 
     }
 
+
     public void onClick(View view) {
 
     }
+
+
 }

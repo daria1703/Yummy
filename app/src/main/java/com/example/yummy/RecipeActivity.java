@@ -2,8 +2,11 @@ package com.example.yummy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +18,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static android.graphics.Color.RED;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -40,6 +45,15 @@ public class RecipeActivity extends AppCompatActivity {
         heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
+
+        heart_btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                heart_btn.setImageResource(R.drawable.ic_heart);
+            }
+        });
+
         switch (chosenCategory.toLowerCase()) {
             case "pizza":
                 image_of_dish.setImageResource(R.drawable.pizza_pasterska);
@@ -64,8 +78,8 @@ public class RecipeActivity extends AppCompatActivity {
             List<RecipeData> chosenRecipes = new ArrayList<>();
 
             //wybranie przepisów danej kategorii
-            for (RecipeData recipe: recipes) {
-                if(recipe.getCategory().toLowerCase().equals(chosenCategory.toLowerCase())) {
+            for (RecipeData recipe : recipes) {
+                if (recipe.getCategory().toLowerCase().equals(chosenCategory.toLowerCase())) {
                     chosenRecipes.add(recipe);
                 }
             }
@@ -87,6 +101,9 @@ public class RecipeActivity extends AppCompatActivity {
         }
 
 
+    }
 
+
+    public void onClick(View view) {
     }
 }
