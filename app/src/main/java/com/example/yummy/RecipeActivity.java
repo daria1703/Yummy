@@ -18,7 +18,7 @@ import java.util.Random;
 public class RecipeActivity extends AppCompatActivity {
 
     ImageView image_of_dish;
-    TextView title_of_dish, description;
+    TextView title_of_dish, description, ingredients;
     FloatingActionButton heart_btn;
     FloatingActionButton comments_btn;
 
@@ -34,6 +34,7 @@ public class RecipeActivity extends AppCompatActivity {
         image_of_dish = findViewById(R.id.image_of_dish);
         title_of_dish = findViewById(R.id.title_of_dish);
         description = findViewById(R.id.description);
+        ingredients = findViewById(R.id.inredients);
         heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
@@ -58,6 +59,7 @@ public class RecipeActivity extends AppCompatActivity {
             //wyświetlenie wybranego przepisu
             title_of_dish.setText(chosenRecipe.getTitle());
             description.setText(chosenRecipe.getDescription());
+            ingredients.setText(chosenRecipe.getIngredients());
 
 
         } catch (SQLException e) {

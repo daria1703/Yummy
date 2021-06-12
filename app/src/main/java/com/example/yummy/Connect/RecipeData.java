@@ -7,13 +7,16 @@ public class RecipeData {
     private final String category;
     private final String title;
     private final String description;
+    private final String ingredients;
 
-    public RecipeData(int recipeId, int customerId, String category, String title, String description) {
+    public RecipeData(int recipeId, int customerId, String category, String title,
+                      String description, String ingredients) {
         this.recipeId = recipeId;
         this.customerId = customerId;
         this.category = category;
         this.title = title;
         this.description = description;
+        this.ingredients = ingredients;
     }
 
     public int getRecipeId() {
@@ -34,5 +37,9 @@ public class RecipeData {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getIngredients() {
+        return ingredients;
     }
 }
