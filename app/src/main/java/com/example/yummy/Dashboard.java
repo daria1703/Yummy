@@ -13,8 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.yummy.Connect.Database;
+import com.example.yummy.Connect.RecipeData;
 import com.example.yummy.Connect.UserData;
+import com.example.yummy.service.LoggedUser;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Dashboard extends AppCompatActivity {
@@ -25,7 +28,6 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
 
         email = findViewById(R.id.EditEmail);
         password = findViewById(R.id.editPassword);
@@ -45,6 +47,7 @@ public class Dashboard extends AppCompatActivity {
             UserData user = validateUser(email, password);
 
             if (user != null) {
+                LoggedUser.create(user);
                 makeToast("Hi " + user.getNick() + ", it's nice to see you");
                 goToStartScreen();
             } else {
@@ -81,9 +84,9 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private UserData validateUser(String email, String password) {
-        Database db = new Database();
+        Database.connect();
         try {
-            List<UserData> users = db.getUsersData();
+            List<UserData> users = Database.fetchUsers();
             for (UserData user: users) {
                 if (user.getEmail().equals(email)) {
                     if (user.getPassword().equals(password)) {

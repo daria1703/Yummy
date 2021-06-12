@@ -1,9 +1,5 @@
 package com.example.yummy.Connect;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -14,26 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Database {
+public abstract class Database {
 
     private static Connection connection;
 
-    private final String host = "195.150.230.210";
-    private final String database = "2021_zaucha_patryk";
-    private final int port = 5434;
-    private final String user = "2021_zaucha_patryk";
-    private final String pass = "1234";
-    private String url = "jdbc:postgresql://%s:%d/%s";
-    public boolean status;
+    private static final String host = "195.150.230.210";
+    private static final String database = "2021_zaucha_patryk";
+    private static final int port = 5434;
+    private static final String user = "2021_zaucha_patryk";
+    private static final String pass = "1234";
+    private static String url = "jdbc:postgresql://%s:%d/%s";
+    public static boolean status;
 
-    public Database() {
-        this.url = String.format(this.url, this.host, this.port, this.database);
-        connect();
-        //this.disconnect();
-        System.out.println("connection status:" + status);
-    }
-
-    private void connect() {
+    public static void connect() {
+        url = String.format(url, host, port, database);
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -41,7 +31,6 @@ public class Database {
                     Class.forName("org.postgresql.Driver");
                     connection = DriverManager.getConnection(url, user, pass);
                     status = true;
-                    System.out.println("connected:" + status);
 
                 } catch (Exception e) {
                     status = false;
@@ -55,8 +44,9 @@ public class Database {
             thread.join();
         } catch (Exception e) {
             e.printStackTrace();
-            this.status = false;
+            status = false;
         }
+        System.out.println("connected:" + status);
     }
 
     public Connection getExtraConnection(){
@@ -71,9 +61,9 @@ public class Database {
         return c;
     }
 
-    List<String[]> usersData;
+    static List<String[]> usersData;
 
-    public List<UserData> getUsersData() throws SQLException {
+    public static List<UserData> fetchUsers() throws SQLException {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -93,7 +83,7 @@ public class Database {
             thread.join();
         } catch (Exception e) {
             e.printStackTrace();
-            this.status = false;
+            status = false;
         }
 
         List<UserData> users = new ArrayList<>();
@@ -108,7 +98,8 @@ public class Database {
 
     }
 
-    public List<String[]> getTableContent(String tableName) throws SQLException {
+    public static List<String[]> getTableContent(String tableName) throws SQLException {
+        connect();
         DatabaseMetaData md = connection.getMetaData();
         ResultSet rs = md.getColumns(null, "%", tableName, null);
 
@@ -141,7 +132,7 @@ public class Database {
         return data;
     }
 
-    public List<String> getColumnNames(String tableName) throws SQLException {
+    public static List<String> getColumnNames(String tableName) throws SQLException {
 
         DatabaseMetaData md = connection.getMetaData();
         ResultSet rs = md.getColumns(null, null, tableName, "%");
@@ -153,7 +144,8 @@ public class Database {
         return columns;
     }
 
-    public static boolean addUser(final String fullName, final String nick, final String email, final String password) {
+    public static boolean addUser(final String fullName, final String nick,
+                                  final String email, final String password) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -176,5 +168,75 @@ public class Database {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static List<RecipeData> fetchRecipes() throws SQLException {
+
+        List<String[]> data = new ArrayList<>();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                connect();
+                String query = "SELECT * FROM " + "yummy" + "." + "recipes";
+
+                try {
+                    Statement stmt = connection.createStatement();
+                    ResultSet rs = stmt.executeQuery(query);
+
+                    List<String> columns = getColumnNames("recipes");
+
+                    int width = columns.size();
+
+                    String[] line;
+
+
+                    int i;
+                    while(rs.next()){
+                        i = 0;
+                        line = new String[width];
+                        for (String item: columns){
+                            line[i++] = rs.getString(item);
+                        }
+                        data.add(line);
+                    }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        try {
+            thread.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+/*
+        List<String[]> recipesAsString = null;
+
+        try {
+            recipesAsString = getTableContent("recipes");
+
+        } catch (Exception e) {
+            status = false;
+            System.out.print(e.getMessage());
+            e.printStackTrace();
+        }
+*/
+        List<RecipeData> recipes = new ArrayList<>();
+        RecipeData recipe;
+
+
+
+        for (String[] row: data) {
+            recipe = new RecipeData(Integer.parseInt(row[0]), Integer.parseInt(row[1]),
+                    row[2], row[3], row[4], row[5], row[6]);
+            recipes.add(recipe);
+        }
+
+        return recipes;
+
     }
 }

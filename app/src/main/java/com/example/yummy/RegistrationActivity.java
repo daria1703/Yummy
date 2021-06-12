@@ -37,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isNetworkAvailable()) {
                     makeToast("Signing in...");
-                    new Database();
+                    Database.connect();
                     boolean isSuccess = Database.addUser(fullName.getText().toString(), nick.getText().toString(),
                             email.getText().toString(), password.getText().toString());
                     makeToast("Signing Up Successful!");
