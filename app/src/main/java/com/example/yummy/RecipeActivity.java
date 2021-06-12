@@ -18,7 +18,7 @@ import java.util.Random;
 public class RecipeActivity extends AppCompatActivity {
 
     ImageView image_of_dish;
-    TextView title_of_dish, description, ingredients;
+    TextView title_of_dish, description, ingredients, time;
     FloatingActionButton heart_btn;
     FloatingActionButton comments_btn;
 
@@ -35,6 +35,7 @@ public class RecipeActivity extends AppCompatActivity {
         title_of_dish = findViewById(R.id.title_of_dish);
         description = findViewById(R.id.description);
         ingredients = findViewById(R.id.inredients);
+        time = findViewById(R.id.time);
         heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
@@ -53,13 +54,14 @@ public class RecipeActivity extends AppCompatActivity {
             //wylosowanie jednego przepisu
             Random random = new Random();
             int max = chosenRecipes.size();
-            int chosenRecipeNumber = random.nextInt(max + 1);
+            int chosenRecipeNumber = random.nextInt(chosenRecipes.size());
             RecipeData chosenRecipe = chosenRecipes.get(chosenRecipeNumber);
 
             //wyświetlenie wybranego przepisu
             title_of_dish.setText(chosenRecipe.getTitle());
             description.setText(chosenRecipe.getDescription());
             ingredients.setText(chosenRecipe.getIngredients());
+            time.setText(chosenRecipe.getTime());
 
 
         } catch (SQLException e) {
