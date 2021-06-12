@@ -29,15 +29,6 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // przykładowe pobranie przepisów z bazy danych
-        try {
-            List<RecipeData> recipes = Database.fetchRecipes();
-            System.out.println(recipes);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-
         email = findViewById(R.id.EditEmail);
         password = findViewById(R.id.editPassword);
     }
