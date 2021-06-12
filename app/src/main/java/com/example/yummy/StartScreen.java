@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -26,6 +28,8 @@ public class StartScreen extends AppCompatActivity {
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
 
+    ImageView userImage;
+
     private final ArrayList<StaticRvModel> item = new ArrayList<>();
 
 
@@ -35,6 +39,9 @@ public class StartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
+
+        userImage = findViewById(R.id.pofile_icon);
+        userImage.setOnClickListener(v -> goToUserPage());
 
         item.add(new StaticRvModel(R.drawable.ic_pizza,"Pizza"));
         item.add(new StaticRvModel(R.drawable.ic_cake_rv,"Cake"));
@@ -52,12 +59,8 @@ public class StartScreen extends AppCompatActivity {
 
 
             items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
+
+
 
 
         RecyclerView drv = findViewById(R.id.rv2);
@@ -122,6 +125,11 @@ public class StartScreen extends AppCompatActivity {
     private void goToRecipe(String chosenCategory) {
         Intent intent = new Intent(this, RecipeActivity.class);
         intent.putExtra("chosenCategory", chosenCategory);
+        startActivity(intent);
+    }
+  
+    private void goToUserPage() {
+        Intent intent = new Intent(this, UserActivity.class);
         startActivity(intent);
     }
 
