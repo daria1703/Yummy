@@ -2,6 +2,7 @@ package com.example.yummy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +40,24 @@ public class RecipeActivity extends AppCompatActivity {
         heart_btn = findViewById(R.id.heart_btn);
         comments_btn = findViewById(R.id.comments_btn);
 
+        switch (chosenCategory.toLowerCase()) {
+            case "pizza":
+                image_of_dish.setImageResource(R.drawable.pizza_pasterska);
+                break;
+            case "cake":
+                image_of_dish.setImageResource(R.drawable.ciasto_gora_lodowa);
+                break;
+            case "cupcake":
+                image_of_dish.setImageResource(R.drawable.muffiny_czekoladowe_00);
+                break;
+            case "dinner":
+                image_of_dish.setImageResource(R.drawable.makaron_z_pulpecikami_w_sosie_carbonara);
+                break;
+            case "drink":
+                image_of_dish.setImageResource(R.drawable.bombardino);
+                break;
+        }
+
 
         try {
             List<RecipeData> recipes = Database.fetchRecipes();
@@ -53,7 +72,6 @@ public class RecipeActivity extends AppCompatActivity {
 
             //wylosowanie jednego przepisu
             Random random = new Random();
-            int max = chosenRecipes.size();
             int chosenRecipeNumber = random.nextInt(chosenRecipes.size());
             RecipeData chosenRecipe = chosenRecipes.get(chosenRecipeNumber);
 
