@@ -52,12 +52,8 @@ public class StartScreen extends AppCompatActivity {
 
 
             items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
-            items.add(new DynamicRVModel("Pizza"));
+
+
 
 
         RecyclerView drv = findViewById(R.id.rv2);
