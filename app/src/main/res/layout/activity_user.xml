@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDDDF1">
+    android:background="#EDDDF1"
+    tools:context=".UserActivity">
 
 
     <ImageView
@@ -27,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_user" />
+        app:srcCompat="@drawable/ic_user"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/user_nick"
@@ -71,13 +73,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                
+
 
             </androidx.cardview.widget.CardView>
         </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

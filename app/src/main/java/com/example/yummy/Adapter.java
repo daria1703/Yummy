@@ -32,7 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.activity_user_screen,parent,false);
+        View view = inflater.inflate(R.layout.activity_user,parent,false);
 
         return new ViewHolder(view);
     }
