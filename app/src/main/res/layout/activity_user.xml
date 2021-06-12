@@ -28,8 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_user"
-        tools:ignore="VectorDrawableCompat" />
+        android:src="@drawable/user_cat" />
 
     <TextView
         android:id="@+id/user_nick"
@@ -57,26 +56,23 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg_user">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_grid"
+        <GridView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+            android:layout_height="match_parent"
+            android:id="@+id/gridView"
+            android:numColumns="2"
+            />
 
 
-            </androidx.cardview.widget.CardView>
-        </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
