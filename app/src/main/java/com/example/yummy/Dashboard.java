@@ -29,6 +29,9 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+
+
+
         email = findViewById(R.id.EditEmail);
         password = findViewById(R.id.editPassword);
     }

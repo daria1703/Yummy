@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 
 import com.example.yummy.service.LoggedUser;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class StartScreen extends AppCompatActivity {
 
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
-
+    Button button;
     ImageView userImage;
 
     private final ArrayList<StaticRvModel> item = new ArrayList<>();
@@ -43,11 +45,17 @@ public class StartScreen extends AppCompatActivity {
         userImage = findViewById(R.id.pofile_icon);
         userImage.setOnClickListener(v -> goToUserPage());
 
+
+
         item.add(new StaticRvModel(R.drawable.ic_pizza,"Pizza"));
         item.add(new StaticRvModel(R.drawable.ic_cake_rv,"Cake"));
         item.add(new StaticRvModel(R.drawable.ic_cup_cake,"Cupcake"));
         item.add(new StaticRvModel(R.drawable.ic_banquet,"Dinner"));
         item.add(new StaticRvModel(R.drawable.ic_quentao,"Drink"));
+
+
+
+
 
         TextView usernameDisplay = findViewById(R.id.Foodies);
         usernameDisplay.setText(LoggedUser.getNick());
@@ -59,8 +67,6 @@ public class StartScreen extends AppCompatActivity {
 
 
             items.add(new DynamicRVModel("Pizza"));
-
-
 
 
         RecyclerView drv = findViewById(R.id.rv2);
