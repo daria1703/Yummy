@@ -16,7 +16,7 @@ import com.example.yummy.DynamicRecycleView.LoadMore;
 
 import java.util.List;
 
-class LoadingViewHolder extends RecyclerView.ViewHolder{
+class  LoadingViewHolder extends RecyclerView.ViewHolder{
 
     public ProgressBar progressBar;
 
