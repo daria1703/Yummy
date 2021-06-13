@@ -26,20 +26,6 @@
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="VectorDrawableCompat" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="40dp"
-            android:layout_height="34dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pofile_icon"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pofile_icon"
-            app:layout_constraintVertical_bias="0"
-            app:srcCompat="@drawable/ic_plus"
-            tools:ignore="VectorDrawableCompat" />
-
         <TextView
             android:id="@+id/hello"
             android:layout_width="120dp"
@@ -53,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.021"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/pofile_icon"
             app:layout_constraintVertical_bias="0.026" />
 
         <TextView
