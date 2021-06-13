@@ -58,22 +58,6 @@
             app:srcCompat="@drawable/ic_empty_heart"
             tools:ignore="VectorDrawableCompat" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/comments_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="256dp"
-            android:backgroundTint="#FF4081"
-            android:clickable="true"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.735"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35"
-            app:srcCompat="@drawable/ic_speech_bubble"
-            tools:ignore="VectorDrawableCompat" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"

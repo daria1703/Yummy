@@ -31,28 +31,23 @@ public class RegistrationActivity extends AppCompatActivity {
         email = findViewById(R.id.EditEmail2);
         password = findViewById(R.id.editPassword);
 
-        //TODO walidacja danych
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNetworkAvailable()) {
-                    makeToast("Signing in...");
-                    Database.connect();
-                    boolean isSuccess = Database.addUser(fullName.getText().toString(), nick.getText().toString(),
-                            email.getText().toString(), password.getText().toString());
+        btnRegister.setOnClickListener(v -> {
+            if (isNetworkAvailable()) {
+                makeToast("Signing in...");
+                Database.connect();
+                boolean isSuccess = Database.addUser(fullName.getText().toString(), nick.getText().toString(),
+                        email.getText().toString(), password.getText().toString());
+                makeToast("Signing Up Successful!");
+                if (isSuccess) {
                     makeToast("Signing Up Successful!");
-                    if (isSuccess) {
-                        makeToast("Signing Up Successful!");
-                    } else {
-                        makeToast("Something went wrong, try again later...");
-                    }
-
                 } else {
-                    makeToast("Check your Internet connection and try again...");
+                    makeToast("Something went wrong, try again later...");
                 }
-                goToSignIn();
-            }
 
+            } else {
+                makeToast("Check your Internet connection and try again...");
+            }
+            goToSignIn();
         });
 
     }

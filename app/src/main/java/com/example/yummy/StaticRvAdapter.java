@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.StaticRVViewHolder>{
 
-    private ArrayList<StaticRvModel> items;
+    private final ArrayList<StaticRvModel> items;
     int row_index = -1;
 
 
@@ -40,12 +40,9 @@ public class StaticRvAdapter extends RecyclerView.Adapter<StaticRvAdapter.Static
         holder.imageView.setImageResource(cureentItem.getImage());
         holder.textView.setText(cureentItem.getText());
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                row_index = position;
-                notifyDataSetChanged();
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            row_index = position;
+            notifyDataSetChanged();
         });
 
         if (row_index == position ){

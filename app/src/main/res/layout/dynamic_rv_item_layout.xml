@@ -57,32 +57,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,12 +75,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
+                android:text="Najlepsze muffiny czekoladowe z kawałkami czekolady. Mięsiste i wilgotne, z kawałkami roztapiającej się czekolady w środku, z chrupiącą skorupką na wierzchu. "
                 android:textSize="15dp"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -163,31 +139,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico2"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -205,12 +156,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
+                android:textAlignment="center"
+                android:text="Łagodna w smaku pizza dla miłośników sera. Znajdują się na niej aż trzy jego rodzaje - mozzarella, kozi oraz halloumi (lub rodzimy oscypek). Ze szczypiorkiem (koniecznie!) i młodymi listkami szpinaku oraz gruboziarnistą solą morską."
                 android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -267,31 +220,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico3"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -309,12 +237,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
                 android:textSize="15dp"
+                android:text="Smoothie z pieczonych batatów to koktajl bogaty w witaminę A. W okresie koronawirusa jedz produkty z tą witaminą, ponieważ jej niedobór zaburza funkcje układu odpornościowego."
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -371,31 +301,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico4"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button4"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -413,12 +318,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
                 android:textSize="15dp"
+                android:text="Błyskawiczna do przygotowania zupa z ulubinych składników: młodych ziemniaków i cukinii. Podawana z pokrojoną fetą. Pysznie i sezonowo!"
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -475,31 +382,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico5"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button5"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -517,12 +399,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
-                android:textSize="15dp"
+                android:text="Sernik na kruchym cieście, pokryty tym samym startym, kruchym ciastem. W masie serowej zatopione są kawałki brzoskwiń z puszki, które pokrywa warstwa bezowa."                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -579,31 +462,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/user_ico6"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_empty_heart"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_speech_bubble"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/button6"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.501" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -621,12 +479,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="36dp"
-                android:text="Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. "
                 android:textSize="15dp"
+                android:text="Pomysł na chłodzący napój z wykorzystaniem świeżych sezonowych owoców, np. malin. Mus ze zmiksowanych malin łączę z syropem cukrowym a następnie schładzam."
+                android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:gravity="center_horizontal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

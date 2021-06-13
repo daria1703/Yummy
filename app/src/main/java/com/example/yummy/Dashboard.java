@@ -13,11 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.yummy.Connect.Database;
-import com.example.yummy.Connect.RecipeData;
 import com.example.yummy.Connect.UserData;
 import com.example.yummy.service.LoggedUser;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class Dashboard extends AppCompatActivity {
@@ -28,9 +26,6 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-
-
 
         email = findViewById(R.id.EditEmail);
         password = findViewById(R.id.editPassword);
