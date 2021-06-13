@@ -1,8 +1,5 @@
 package com.example.yummy;
 
-import android.content.Intent;
-import android.view.View;
-
 public class DynamicRVModel {
 
     String name;

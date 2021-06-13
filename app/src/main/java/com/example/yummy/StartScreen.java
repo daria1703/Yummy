@@ -7,14 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.example.yummy.service.LoggedUser;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +22,9 @@ public class StartScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private StaticRvAdapter staticRvAdapter;
-    private DynamicRVModel dynamicRVModel;
 
     List<DynamicRVModel> items = new ArrayList();
     DynamicRVAdapter dynamicRVAdapter;
-    Button button;
     ImageView userImage;
 
     private final ArrayList<StaticRvModel> item = new ArrayList<>();
@@ -108,16 +104,6 @@ public class StartScreen extends AppCompatActivity {
                 })
         );
 
-        drv.addOnItemTouchListener(
-                new RecyclerItemClickListener(getApplicationContext(), (view, position)
-                        -> goToRecipe())
-        );
-
-    }
-
-    private void goToRecipe() {
-        Intent intent = new Intent(this, RecipeActivity.class);
-        startActivity(intent);
     }
 
     private void goToRecipe(String chosenCategory) {

@@ -2,11 +2,8 @@ package com.example.yummy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,19 +11,15 @@ import com.example.yummy.Connect.Database;
 import com.example.yummy.Connect.RecipeData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static android.graphics.Color.RED;
 
 public class RecipeActivity extends AppCompatActivity {
 
     ImageView image_of_dish;
     TextView title_of_dish, description, ingredients, time;
     FloatingActionButton heart_btn;
-    FloatingActionButton comments_btn;
 
     String chosenCategory;
 
@@ -43,16 +36,9 @@ public class RecipeActivity extends AppCompatActivity {
         ingredients = findViewById(R.id.inredients);
         time = findViewById(R.id.time);
         heart_btn = findViewById(R.id.heart_btn);
-        comments_btn = findViewById(R.id.comments_btn);
 
 
-        heart_btn.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                heart_btn.setImageResource(R.drawable.ic_heart);
-            }
-        });
+        heart_btn.setOnClickListener(v -> heart_btn.setImageResource(R.drawable.ic_heart));
 
         switch (chosenCategory.toLowerCase()) {
             case "pizza":
@@ -73,32 +59,26 @@ public class RecipeActivity extends AppCompatActivity {
         }
 
 
-        try {
-            List<RecipeData> recipes = Database.fetchRecipes();
-            List<RecipeData> chosenRecipes = new ArrayList<>();
+        List<RecipeData> recipes = Database.fetchRecipes();
+        List<RecipeData> chosenRecipes = new ArrayList<>();
 
-            //wybranie przepisów danej kategorii
-            for (RecipeData recipe : recipes) {
-                if (recipe.getCategory().toLowerCase().equals(chosenCategory.toLowerCase())) {
-                    chosenRecipes.add(recipe);
-                }
+        //wybranie przepisów danej kategorii
+        for (RecipeData recipe : recipes) {
+            if (recipe.getCategory().toLowerCase().equals(chosenCategory.toLowerCase())) {
+                chosenRecipes.add(recipe);
             }
-
-            //wylosowanie jednego przepisu
-            Random random = new Random();
-            int chosenRecipeNumber = random.nextInt(chosenRecipes.size());
-            RecipeData chosenRecipe = chosenRecipes.get(chosenRecipeNumber);
-
-            //wyświetlenie wybranego przepisu
-            title_of_dish.setText(chosenRecipe.getTitle());
-            description.setText(chosenRecipe.getDescription());
-            ingredients.setText(chosenRecipe.getIngredients());
-            time.setText(chosenRecipe.getTime());
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
+
+        //wylosowanie jednego przepisu
+        Random random = new Random();
+        int chosenRecipeNumber = random.nextInt(chosenRecipes.size());
+        RecipeData chosenRecipe = chosenRecipes.get(chosenRecipeNumber);
+
+        //wyświetlenie wybranego przepisu
+        title_of_dish.setText(chosenRecipe.getTitle());
+        description.setText(chosenRecipe.getDescription());
+        ingredients.setText(chosenRecipe.getIngredients());
+        time.setText(chosenRecipe.getTime());
 
 
     }

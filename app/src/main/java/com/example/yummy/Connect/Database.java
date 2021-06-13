@@ -48,7 +48,7 @@ public abstract class Database {
 
     static List<String[]> usersData;
 
-    public static List<UserData> fetchUsers() throws SQLException {
+    public static List<UserData> fetchUsers() {
 
         Thread thread = new Thread(() -> {
             try {
@@ -148,7 +148,7 @@ public abstract class Database {
         }
     }
 
-    public static List<RecipeData> fetchRecipes() throws SQLException {
+    public static List<RecipeData> fetchRecipes() {
 
         List<String[]> data = new ArrayList<>();
 
